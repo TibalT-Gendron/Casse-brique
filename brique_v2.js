@@ -1,3 +1,4 @@
+// Initialisations des variables //
 let brickRowCount = 9;
 let brickColumnCount = 1;
 let brickWidth = 120;
@@ -9,6 +10,7 @@ let nivdif = 2;
 let cmarge = 0;
 let timme = 0;
 
+// Création des tableaux bricks et brickfant et atribution de leurs valeurs//
 let bricks = [];
 for(let c=0; c<100; c++) {
     bricks[c] = [];
@@ -25,6 +27,8 @@ for(let c=0; c<1; c++) {
     }
 }
 
+
+// Initialisation et definition de la fonction drawBricks() //
 function drawBricks() {
     cmarge++;
     brickColumnCount++;
@@ -33,9 +37,24 @@ function drawBricks() {
         brickRowCount++;
         timme = 0;
         brickWidth -= 9.5;
-        brickHeight -= 208;
+        brickHeight -= 2.8;
         brickPadding -= 0.7;
     }
+
+    // Avancer toutes les bricks d'une place dans le tableaux //
+    for(let c=98; c > 0; c--) {
+        for(let r=0; r<brickRowCount; r++) {
+            bricks[c+1][r].x = bricks[c][r].x + brickWidth + brickPadding;
+            brickX = bricks[c][r].x;
+            brickY = bricks[c][r].y;
+            ctx.beginPath();
+            ctx.rect(brickX, brickY, brickWidth, brickHeight);
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+
+    // Création de la brick du tableau brickfant[] //
     for(let c=0; c<1; c++) {
         for(let r=0; r<1; r++) {
             let brickX = (c*(brickWidth+brickPadding))-brickWidth;
@@ -44,27 +63,14 @@ function drawBricks() {
             bricksfant[c][r].y = brickY;
             ctx.beginPath();
             ctx.rect(brickX, brickY, brickWidth, brickHeight);
-            for(let c=cmarge; c<brickColumnCount; c++) {
-                for(let r=0; r<brickRowCount; r++) {
-                    if(bricks[c][r].status == 1) {
-                        let brickX = (c*(brickWidth+brickPadding))-brickWidth;
-                        let brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
-                        bricks[c][r].x = brickX;
-                        bricks[c][r].y = brickY;
-                        ctx.beginPath();
-                        ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                        ctx.fillStyle = "#01FFBC";
-                        ctx.fill();
-                        ctx.closePath();
-                    }
-                }
-            }
             ctx.fillStyle = '#eee';
             ctx.fill();
             ctx.closePath();
         }
     }
-    for(let c=cmarge; c<brickColumnCount; c++) {
+
+    // Création de la colonne 1 du tableau bricks[] //
+    for(let c=brickColumnCount-1; c<brickColumnCount; c++) {
         for(let r=0; r<brickRowCount; r++) {
             if(bricks[c][r].status == 1) {
                 let brickX = (c*(brickWidth+brickPadding))-brickWidth;
@@ -81,7 +87,11 @@ function drawBricks() {
     }
 }
 
+
+// Initialisation et definition de la fonction drawAvbricks() permettant "l'avancement" des bricks //
 function drawAvbricks() {
+
+    // Avancement des bricks non detruite //
     for(let c=0; c<1; c++) {
         for(let r=0; r<1; r++) {
             let brickX = bricksfant[c][r].x+0.02;
@@ -95,6 +105,8 @@ function drawAvbricks() {
             ctx.closePath();
         }
     }
+
+    // Avancement des bricks detruite par rapport à leur spécificité //
     for(let c=0; c<brickColumnCount; c++) {
         for(let r=0; r<brickRowCount; r++) {
             if(bricks[c][r].status == 1) {
