@@ -1,3 +1,4 @@
+// Initialisations des variables //
 let paddleHeight = 10;
 let paddleWidth = 75;
 let paddleX = (mycanvas.width-paddleHeight)-10;
@@ -8,9 +9,11 @@ let spacePressed = false;
 let started = 'off';
 let zzz = 5;
 
+// Initialisations de keyDownHandler et keyUpHandler //
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
+// Initialisations des fonctions keyDownHandler et keyUpHandler //
 function keyDownHandler(e) {
     if(e.keyCode == 32){
         spacePressed = true;
@@ -33,6 +36,7 @@ function keyUpHandler(e) {
     }
 }
 
+// Fonction permettant le "mouvement" du paddle //
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, paddleY, paddleHeight, paddleWidth);
