@@ -1,3 +1,4 @@
+// Initialisation et definition de la fonction CollBall() permettant la detection de la collission balle -> paddle //
 function CollBall() {
     if(x + dx < ballRadius) {
         dx = -dx;
@@ -115,6 +116,8 @@ function CollBall() {
         }else if(y >= paddleY+(zzz*6) && y <= paddleY + paddleWidth-(zzz*6) ){
             dx = -dx;
         }
+
+    // Detection du contact entre la balle et le bord droit du canva permettant la decrementation de la vie //
     }else if(x > mycanvas.width-ballRadius) {
         lives--;
         if(!lives) {

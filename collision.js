@@ -1,4 +1,7 @@
+// Initialisation et definition de la fonction collisionDetection() permettant la collission balle -> briques //
 function collisionDetection() {
+
+    // Verification de la collission pour chaque briques du tableau bricks[] //
     for(let c=0; c<brickColumnCount; c++) {
         for(let r=0; r<brickRowCount; r++) {
             let b = bricks[c][r];
@@ -22,13 +25,9 @@ function collisionDetection() {
                     }
                     b.status = 0;
                     score++;
-                    /*
-                    if(score == brickRowCount*brickColumnCount) {
-                        document.location.reload();
-                        alert("YOU WIN, CONGRATULATIONS!");
-                        clearInterval(interval); // Needed for Chrome to end game
-                    }*/
                 }
+
+                // Verification de la collission paddle -> briques //
                 if(b.x+brickWidth < mycanvas.width-10 && b.x > mycanvas.width-paddleHeight-10 && ((b.y < paddleY+paddleWidth && b.y > paddleY) || (b.y+brickHeight < paddleY+paddleWidth && b.y+brickHeight > paddleY))){
                     if(b.id == 1){
                         //On ne fait rien ;)
