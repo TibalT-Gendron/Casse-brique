@@ -12,6 +12,8 @@ function draw() {
     }
     if(started == 'on'){
         ctx.clearRect(0, 0, mycanvas.width, mycanvas.height);
+
+        // Appels des fonctions //
         collisionDetection();
         drawAvbricks();
         drawBall();
@@ -19,6 +21,7 @@ function draw() {
         drawScore();
         drawLives();
 
+        // Regard sur l'avancement des bricks pour faire apparaître les nouvelles //
         for(let c=0; c<1; c++) {
             for(let r=0; r<1; r++) {
                 if(bricksfant[c][r].x > brickPadding && bricksfant[c][r].x-2 < brickPadding && bricksfant[c][r].status == 1){
@@ -30,6 +33,7 @@ function draw() {
 
         CollBall();
 
+        // Mouvement du padding //
         if(downPressed && paddleY < mycanvas.height-paddleWidth) {
             paddleY += z;
         }
@@ -42,4 +46,6 @@ function draw() {
     }
 
 }
+
+// Intervale de temps entre chaque appel de la fonction "draw" //
 setInterval(draw, 10);
