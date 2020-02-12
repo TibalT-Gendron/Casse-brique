@@ -42,7 +42,6 @@ exemples :
 
 
 
-
 License
 Ce projet est accesible a tous. 
 Tout cela réaliser grace a de nombreuse recherche effectué et quelque cours eu en classe.
