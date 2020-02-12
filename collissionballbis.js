@@ -122,7 +122,7 @@ function CollBall() {
         lives--;
         if(!lives) {
             document.location.reload();
-            alert("GAME OVER");
+            alert("GAME OVER\n Congratulation, you're failures");
             clearInterval(interval); // Needed for Chrome to end game
         }else {
             x = mycanvas.width-30;
