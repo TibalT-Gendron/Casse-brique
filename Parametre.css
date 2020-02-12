@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    background-color: black;
+    align-items: center;
+    background-image: url(https://www.lettrepub.fr/storage/stickers/Sticker%20engrenage%20MEC08.png);
+    background-size: 100%;
+}
+
+#divbody{
+    text-align: center;
+    margin-top: 5em;
+}
+
+#title{
+    font-size: 5em;
+    color: rgb(123, 255, 0);
+}
+
+#comicsoon{
+    font-size: 10em;
+    color: rgb(255, 0, 0);
+}
