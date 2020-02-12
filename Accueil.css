@@ -1,35 +1,40 @@
-#divbody{
+#divbody {
     text-align: center;
     margin-top: 8em;
 }
 
-#title{
+#title {
     font-size: 6em;
     color: red;
 }
 
-#butstart{
+#butstart {
     width: 16em;
     height: 4em;
     font-size: 2em;
     border-radius: 2em;
     color: white;
     background-color: black;
-    box-shadow : -10px -5px 5px rgba(0, 0, 0, 0.8);
+    box-shadow: -10px -5px 5px rgba(0, 0, 0, 0.8);
 }
 
-#divbutsecondaire{
+#divbutsecondaire {
     margin-top: 4em;
     display: flex;
     justify-content: space-around;
 }
 
-.butsecondaire{
+.butsecondaire {
     width: 10em;
     height: 3em;
     border-radius: 2em;
     font-size: 1.5em;
     color: white;
     background-color: black;
-    box-shadow : -10px -5px 5px rgba(0, 0, 0, 0.8);
+    box-shadow: -10px -5px 5px rgba(0, 0, 0, 0.8);
+}
+
+body {
+
+    background-image: url(br.png);
 }
